@@ -19,25 +19,29 @@ public class TurtleRace {
 	    while (turtleList.get(f).getX() < RaceWindow.X_END_POS) {
 
 		for (int i = 0; i < turtleList.size(); i++) {
+		    
+		    if (turtleList.get(i).getX() < RaceWindow.X_END_POS) {
+			turtleList.get(i).raceStep();
+			    RaceWindow.delay(5);
+		    }
 
-		    turtleList.get(i).raceStep();
-		    RaceWindow.delay(5);
+		    
 		    int turtlePos = turtleList.get(i).getX();
-		    if (turtlePos > RaceWindow.X_END_POS && a <3) {
+		    if (turtlePos >= RaceWindow.X_END_POS && a < 3) {
 			winnerList.add(turtleList.get(i));
 			turtleList.remove(i);
 			a++;
+
 		    }
 
 		}
 
 	    }
-
-	    }
-	    int b = 1;
-	    for (RaceTurtle t : winnerList) {
-		System.out.println("På plats " + b + ": " + t.toString());
-		b++;
+	}
+	int b = 1;
+	for (RaceTurtle t : winnerList) {
+	    System.out.println("På plats " + b + ": " + t.toString());
+	    b++;
 	}
     }
 }
