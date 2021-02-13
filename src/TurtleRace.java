@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TurtleRace {
 
@@ -13,35 +14,34 @@ public class TurtleRace {
 	for (int i = 0; i < 8; i++) {
 	    RaceTurtle rc = new RaceTurtle(w, i + 1);
 	    turtleList.add(rc);
+	    }
+	    for (int f = 0; f < turtleList.size(); f++) {
+		while (turtleList.get(f).getX() < RaceWindow.X_END_POS) {
 
-	}
-	for (int f = 0; f < turtleList.size(); f++) {
-	    while (turtleList.get(f).getX() < RaceWindow.X_END_POS) {
+		    for (int i = 0; i < turtleList.size(); i++) {
 
-		for (int i = 0; i < turtleList.size(); i++) {
-		    
-		    if (turtleList.get(i).getX() < RaceWindow.X_END_POS) {
-			turtleList.get(i).raceStep();
+			if (turtleList.get(i).getX() < RaceWindow.X_END_POS) {
+			    turtleList.get(i).raceStep();
 			    RaceWindow.delay(5);
-		    }
+			}
 
-		    
-		    int turtlePos = turtleList.get(i).getX();
-		    if (turtlePos >= RaceWindow.X_END_POS && a < 3) {
-			winnerList.add(turtleList.get(i));
-			turtleList.remove(i);
-			a++;
+			int turtlePos = turtleList.get(i).getX();
+			if (turtlePos >= RaceWindow.X_END_POS && a < 3) {
+			    winnerList.add(turtleList.get(i));
+			    turtleList.remove(i);
+			    a++;
+
+			}
 
 		    }
 
 		}
-
 	    }
-	}
-	int b = 1;
-	for (RaceTurtle t : winnerList) {
-	    System.out.println("På plats " + b + ": " + t.toString());
-	    b++;
-	}
+	    int b = 1;
+	    for (RaceTurtle t : winnerList) {
+		System.out.println("På plats " + b + ": " + t.toString());
+		b++;
+	    }
     }
 }
+

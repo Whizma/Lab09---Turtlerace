@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class RaceTurtle extends Turtle {
 
-    private int nbr;
+    protected int nbr;
 
     /**
      * Skapar en sköldpadda som ska springa i fönstret w och som har start- nummer
